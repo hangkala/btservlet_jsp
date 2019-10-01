@@ -10,15 +10,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
+ * Xử lý với dữ liệu bảng user
  * @author HangHT
  *
  */
-public class UserLogic extends BaseDatabase {
+public class UserDatabase extends BaseDatabase {
 
-	public UserLogic() throws ClassNotFoundException {
+	/**
+	 * Phương thức khởi tạo
+	 * @throws ClassNotFoundException
+	 */
+	public UserDatabase() throws ClassNotFoundException {
 		super();
 	}
 	
+	/**
+	 * Phương thức lấy danh sách user từ DB
+	 * @return ArrayList
+	 * @throws SQLException
+	 */
 	public ArrayList<UserBean>getListUser() throws SQLException{
 		ArrayList<UserBean>lsUser = new ArrayList<UserBean>();
 		StringBuilder sql = new StringBuilder("SELECT * FROM user");
@@ -45,15 +55,17 @@ public class UserLogic extends BaseDatabase {
 		}
 	}
 	
+	/**
+	 * Phương thức test gói logic
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		try {
-			UserLogic ul = new UserLogic();
+			UserDatabase ul = new UserDatabase();
 			System.out.println(ul.getListUser());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

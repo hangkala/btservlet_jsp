@@ -15,31 +15,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.UserBean;
-import model.UserLogic;
+import model.UserDatabase;
 
 /**
+ * Servlet lấy danh sách user từ DB
  * @author HangHT
  *
  */
 public class ListUserServlet extends HttpServlet{
-	private UserLogic ul;
+	private UserDatabase userdb;
 	
 	@Override
+	/**
+	 * Ghi đè phương thức doGet của Servlet
+	 * @param req: Yêu cầu của user
+	 * @param resp: Câu trả lời của server
+	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			ul = new UserLogic();
-			ArrayList<UserBean>lsUser = ul.getListUser();
+			userdb = new UserDatabase();
+			ArrayList<UserBean>lsUser = userdb.getListUser();
 			req.setAttribute("listUser", lsUser);
 			RequestDispatcher rd = req.getRequestDispatcher("listUser.jsp");
 			rd.forward(req, resp);
-			System.out.println(lsUser);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("doget");
 	}
 }

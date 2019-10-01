@@ -5,55 +5,73 @@
 package model;
 
 /**
+ * Class mô tả đối tượng userbean
  * @author HangHT
  *
  */
 public class UserBean {
-	private int Id;
+	private int id;
 	private String name, birthday, birthplace;
 
 	/**
-	 * 
+	 * Phương thức khởi tạo không tham số
 	 */
 	public UserBean() {
 	}
 
+	/**
+	 * @return the id
+	 */
 	public int getId() {
-		return Id;
+		return id;
 	}
 
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @return the birthday
+	 */
 	public String getBirthday() {
 		return birthday;
 	}
 
+	/**
+	 * @param birthday the birthday to set
+	 */
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
+	/**
+	 * @return the birthplace
+	 */
 	public String getBirthplace() {
 		return birthplace;
 	}
 
+	/**
+	 * @param birthplace the birthplace to set
+	 */
 	public void setBirthplace(String birthplace) {
 		this.birthplace = birthplace;
 	}
-
-	@Override
-	public String toString() {
-		return "UserBean [Id=" + Id + ", name=" + name + ", birthday=" + birthday + ", birthplace=" + birthplace + "]";
-	}
-	
-	
 }
