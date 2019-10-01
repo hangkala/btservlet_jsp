@@ -5,7 +5,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -35,12 +34,13 @@ public class ListUserServlet extends HttpServlet{
 		try {
 			userdb = new UserDatabase();
 			ArrayList<UserBean>lsUser = userdb.getListUser();
+			// server lưu giá trị lsUser trên request
+			// lưu trên session = cách req.getSession() => ss.setAttribute
 			req.setAttribute("listUser", lsUser);
 			RequestDispatcher rd = req.getRequestDispatcher("listUser.jsp");
 			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
+			resp.sendRedirect("error?errdetail=" + e);
 			e.printStackTrace();
 		}
 	}

@@ -31,9 +31,12 @@ public class UserDatabase extends BaseDatabase {
 	 */
 	public ArrayList<UserBean>getListUser() throws SQLException{
 		ArrayList<UserBean>lsUser = new ArrayList<UserBean>();
-		StringBuilder sql = new StringBuilder("SELECT * FROM user");
+		StringBuilder sql = new StringBuilder("SELECT * FROM 1user");
 		try {
 			openConnection();
+			if(con == null) {
+				return null;
+			}
 			PreparedStatement ps = con.prepareStatement(sql.toString());
 			ResultSet rs = ps.executeQuery();
 			
@@ -49,25 +52,10 @@ public class UserDatabase extends BaseDatabase {
 			return lsUser;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SQLException();
+			throw new SQLException("Loi cu phap SQL");
 		} finally {
 			closeConnection();
 		}
 	}
 	
-	/**
-	 * Phương thức test gói logic
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		try {
-			UserDatabase ul = new UserDatabase();
-			System.out.println(ul.getListUser());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
 }
