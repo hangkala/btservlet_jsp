@@ -41,7 +41,6 @@ table, th, td {
 				for (UserBean us : ls) {
 			%>
 			<tr>
-			
 				<td><%=us.getId()%></td>
 				<td><%=Common.encodeHTML(us.getName()) %></td>
 				<td><%=us.getBirthday()%></td>

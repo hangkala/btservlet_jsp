@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ErrorPage</title>
 </head>
 <body>
 <h1><c:out value="${error}"></c:out></h1>

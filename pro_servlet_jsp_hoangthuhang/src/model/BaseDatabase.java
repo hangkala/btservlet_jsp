@@ -15,10 +15,12 @@ import java.sql.SQLException;
  *
  */
 public class BaseDatabase {
-	public static final String URL = "jdbc:mysql://localhost/user_hoangthuhang";
-	public static final String DRIVER = "com.mysql.jdbc.Driver";
-	public static final String USER = "root";
-	public static final String PASS = "0000";
+	public static final String URL = PropertyFile.readProperty("url");
+	public static final String DRIVER = PropertyFile.readProperty("driver");
+	public static final String USER = PropertyFile.readProperty("user");
+	public static final String PASS = PropertyFile.readProperty("pass");
+	public static final String ERR_CLASS = PropertyFile.readProperty("classerr");
+	public static final String ERR_SQL = PropertyFile.readProperty("sqlerr");
 	protected Connection con;
 
 	/**
@@ -33,7 +35,7 @@ public class BaseDatabase {
 		} catch (ClassNotFoundException e) {
 			System.out.println("==========BaseDatabase===========");
 			System.out.println("ten lop ten phuong thuc" + e.getMessage());
-			throw new ClassNotFoundException("Loi lien ket database");
+			throw new ClassNotFoundException(ERR_CLASS);
 		}
 	}
 
@@ -47,7 +49,7 @@ public class BaseDatabase {
 			con = DriverManager.getConnection(URL, USER, PASS);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			throw new SQLException("Loi cau lenh SQL");
+			throw new SQLException(ERR_SQL);
 		}
 	}
 
@@ -64,7 +66,7 @@ public class BaseDatabase {
 			con.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			throw new SQLException("Loi cu phap SQL");
+			throw new SQLException(ERR_SQL);
 		}
 	}
 }

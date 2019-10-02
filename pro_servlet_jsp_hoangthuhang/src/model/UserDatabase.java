@@ -52,7 +52,7 @@ public class UserDatabase extends BaseDatabase {
 			return lsUser;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SQLException("Loi cu phap SQL");
+			throw new SQLException(ERR_SQL);
 		} finally {
 			closeConnection();
 		}
