@@ -2,7 +2,7 @@
  * Copyright(C) 2019 Luvina JSC
  * Common.java, Sep 27, 2019, HangHT
  */
-package model;
+package common;
 
 import java.util.Base64;
 import java.util.Random;

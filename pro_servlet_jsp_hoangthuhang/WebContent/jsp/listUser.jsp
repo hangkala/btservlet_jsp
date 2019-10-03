@@ -1,5 +1,5 @@
 <%@page import="model.UserBean"%>
-<%@page import="model.Common"%>
+<%@page import="common.Common"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>

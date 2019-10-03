@@ -20,7 +20,7 @@ public class ErrorControllerServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("error", req.getParameter("errdetail"));
-		RequestDispatcher rd = req.getRequestDispatcher("showerror.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("jsp/showerror.jsp");
 		rd.forward(req, resp);
 	}
 }

@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import common.PropertyFile;
+
 /**
  * Class đóng và mở kết nối với database
  * 
